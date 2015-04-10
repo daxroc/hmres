@@ -7,6 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <%= render 'layouts/login_modal' %>
   <div class="container">
   	<div class="row clearfix">
   		<div class="col-md-12 column">
@@ -39,12 +40,22 @@
   						</li>
   					</ul>
   				</li>
+  				<li class="pull-right">
+  				  <% if user_signed_in? %>
+  				    <span><%= current_user.email %></span>
+  				    <%= link_to 'Sign out', destroy_user_session_path %>
+  				  <% else %>
+  				    <%= link_to 'Sign in', "#modal-container-signin", id: "modal-signin", "data-toggle" => "modal" %>
+  				  <% end %>
+  				</li>
   			</ul>
   			<div class="row clearfix">
   				<div class="col-md-8 column">
   					<%= yield %>
   				</div>
   				<div class="col-md-4 column">
+  				  <p class="notice"><%= notice %></p>
+            <p class="alert"><%= alert %></p>
   				</div>
   			</div>
   		</div>
