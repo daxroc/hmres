@@ -1,22 +1,22 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: hr_development
+  database: hr_development<%= ENV['TEST_ENV_NUMBER'] %>
   pool: 5
-  username: <%= ENV['DB_USER'] %>
-  password: <%= ENV['DB_PASSWORD'] %>
-  host: <%= ENV['DB_HOST'] %>
+  username: <%= ENV['PG_USER'] %>
+  password: <%= ENV['PG_PASSWORD']  %>
+  host: <%= ENV['DB_HOST'] || 'localhost' %>
   port: 5432
   
   
 test:
   adapter: postgresql
   encoding: unicode
-  database: hr_test
+  database: hr_test<%= ENV['TEST_ENV_NUMBER'] %>
   pool: 5
-  username: <%= ENV['DB_USER'] %>
-  password: <%= ENV['DB_PASSWORD'] %>
-  host: <%= ENV['DB_HOST'] %>
+  username: <%= ENV['PG_USER'] %>
+  password: <%= ENV['PG_PASSWORD'] %>
+  host: <%= ENV['PG_HOST'] || 'localhost' %>
   port: 5432
 
 
