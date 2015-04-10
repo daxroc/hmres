@@ -12,3 +12,6 @@ bundle install
 Configured for PostgreSQL
 Authentication with Devise
 
+
+### Continious Integration/Delivery
+Using Codeship + Heroku to continiously push the latest passing build into production.
