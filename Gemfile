@@ -24,7 +24,15 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise'
 
+
+# Gems used in support of development and test
+# Not required for production
 group :development, :test do
+#  gem 'minitest' # Hack - fixes issue with minitest/ require order
+#  gem 'turn'
+#  gem 'rspec-rails'
+#  gem 'capybara'
+#  gem 'guard-rspec'
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
