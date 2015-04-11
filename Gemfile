@@ -28,6 +28,10 @@ group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'launchy'
+  gem 'relish' 
+  gem 'shoulda-matchers'
+  gem 'shoulda'
 end
 
 group :production do
@@ -36,5 +40,6 @@ end
 
 gem 'foreman'
 gem 'puma'
+
 
 ruby "2.2.0"
