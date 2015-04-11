@@ -8,4 +8,6 @@ class Employee < ActiveRecord::Base
   validates_presence_of :sex
   validates :salary, numericality: { only_integer: true }
   
+  has_one :user
+  
 end

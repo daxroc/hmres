@@ -4,4 +4,7 @@ class User < ActiveRecord::Base
   # D:  Removed registerable - no signups allowed.
   devise :database_authenticatable, :recoverable,
 	 :rememberable, :trackable, :validatable
+	
+	belongs_to :employee 
+	
 end
