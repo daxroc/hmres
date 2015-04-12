@@ -1,6 +1,10 @@
 require 'test_helper'
 
 class EmployeesControllerTest < ActionController::TestCase
+  
+  # D: Include Devise::TestHelpers
+  include Devise::TestHelpers
+  
   setup do
     @employee = employees(:one)
   end
@@ -18,7 +22,7 @@ class EmployeesControllerTest < ActionController::TestCase
 
   test "should create employee" do
     assert_difference('Employee.count') do
-      post :create, employee: {  }
+      post :create, employee: { fname: "john", sname: "murphy", sex: "M", dob: "1980-09-21", join_date: "2015-01-01", salary: 32000  }
     end
 
     assert_redirected_to employee_path(assigns(:employee))
@@ -35,7 +39,7 @@ class EmployeesControllerTest < ActionController::TestCase
   end
 
   test "should update employee" do
-    patch :update, id: @employee, employee: {  }
+    patch :update, id: @employee, employee: { fname: "john", sname: "murphy", sex: "M", dob: "1980-09-21", join_date: "2015-01-01", salary: 32000  }
     assert_redirected_to employee_path(assigns(:employee))
   end
 
