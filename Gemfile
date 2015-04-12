@@ -8,6 +8,8 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'bootstrap-sass'
 gem 'bootstrap_form'
+gem 'bh', '~> 1.2'
+gem 'will_paginate-bootstrap'
 
 gem 'autoprefixer-rails'
 
@@ -25,7 +27,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 
 gem 'will_paginate'
-
 
 # Gems used in support of development and test
 # Not required for production

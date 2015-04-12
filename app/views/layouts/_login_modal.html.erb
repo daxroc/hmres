@@ -3,12 +3,12 @@
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><%= icon :remove_circle %></button>
 				<h4 class="modal-title" id="myModalLabel">
 					Sign in
 				</h4>
 			</div>
-			<%= bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+			<%= form_for(resource, as: resource_name, url: session_path(resource_name), layout: :basic ) do |f| %>
   			<div class="modal-body">
           <div class="field">
             <%= f.email_field :email, autofocus: true %>

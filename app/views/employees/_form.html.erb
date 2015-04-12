@@ -1,0 +1,24 @@
+<%= alert_box notice, context: :success if notice%>
+<%= alert_box alert, context: :warning  if alert%>
+<%= form_for @employee, layout: :basic do |f| %>
+  <% if @employee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+
+      <ul>
+      <% @employee.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+         <%= f.text_field :fname, autocomplete: "off" %>
+         <%= f.text_field :sname, autocomplete: "off" %>
+         <%= f.date_field :sex %>
+         <%= f.date_field :dob %>
+         <%= f.date_field :join_date %>
+         <%= f.number_field :salary %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

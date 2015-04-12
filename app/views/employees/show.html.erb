@@ -1,0 +1,45 @@
+<%= alert_box notice, context: :success if notice%>
+<%= alert_box alert, context: :warning  if alert%>
+<table class="table table-fixed">
+  <tbody>
+     <tr>
+      <th colspan='2'>User ID</th>
+    </tr>
+    <tr>
+      <td colspan='2'><%= @employee.user_id || "Not available" %></td>
+    </tr>
+    <tr>
+      <th>First Name</th>
+      <th>Surname</th>
+    </tr>
+    <tr>
+      <td><%= @employee.fname.titleize %></td>
+      <td><%= @employee.sname.titleize %></td>
+    </tr>
+    <tr>
+      <th>Sex</th>
+      <th>Date of birth</th>
+    </tr>
+    <tr>
+      <td><%= @employee.sex.titleize %></td>
+      <td><%= @employee.dob %></td>
+    </tr>
+    <tr>
+      <th>Join Date</th>
+      <th>Finish Date</th>
+    </tr>
+    <tr>
+      <td><%= @employee.join_date %></td>
+      <td><%= @employee.end_date || "Not avaliable"%></td>
+    </tr>
+  </tbody>
+  
+</table><%= @employee.fname %>
+<%= @employee.sname %>
+<%= @employee.dob %>
+<%= @employee.sex %>
+<%= @employee.join_date %>
+<%= @employee.end_date %>
+<%= @employee.user_id %>
+<%= link_to 'Edit', edit_employee_path(@employee) %> |
+<%= link_to 'Back', employees_path %>
