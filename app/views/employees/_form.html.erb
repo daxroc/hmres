@@ -1,5 +1,3 @@
-<%= alert_box notice, context: :success if notice%>
-<%= alert_box alert, context: :warning  if alert%>
 <%= form_for @employee, layout: :basic do |f| %>
   <% if @employee.errors.any? %>
     <div id="error_explanation">

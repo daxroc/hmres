@@ -1,6 +1,3 @@
-<%= alert_box notice, context: :success if notice%>
-<%= alert_box alert, context: :warning  if alert%>
-
 <h1>Listing Employees</h1>
 <%= will_paginate @employee, renderer: BootstrapPagination::Rails %>
 <table data-toggle="table" class="table table-fixed">
