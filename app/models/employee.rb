@@ -9,5 +9,6 @@ class Employee < ActiveRecord::Base
   validates :salary, numericality: { only_integer: true }
   
   has_one :user
+  has_many :holidays
   
 end

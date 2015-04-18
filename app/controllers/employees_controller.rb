@@ -55,8 +55,8 @@ class EmployeesController < ApplicationController
     end
   end
   
+  # GET /employees/profile
   def profile
-    
   end
 
   # DELETE /employees/1
