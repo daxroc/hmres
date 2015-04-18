@@ -11,47 +11,73 @@
   <div class="container">
   	<div class="row clearfix">
   		<div class="col-md-12 column">
-  			<ul class="nav nav-tabs">
-  				<li class="active">
-  					<a href="/">Home</a>
-  				</li>
-  				<li>
-  					<a href="/employees/profile">My Profile</a>
-  				</li>
+  		  
+  		  <% unless user_signed_in? %>
+  		  <!-- Jumbotron -->
+  		  <div class="jumbotron people">
+  		    
+  				<h1>
+  					Hello HR peoples
+  				</h1>
+  				<p>
+  					Welcome to Humane Resource Ltd.<br>
+  					Form an orderly queue and let's get all your HR needs sorted ..
+  				</p>
   				
-  				<li>
-  					<a href="/employees">Employees</a>
-  				</li>
-  				<li class="disabled">
-  					<a href="#">Messages</a>
-  				</li>
-  				<li class="dropdown pull-right">
-  					 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Dropdown<strong class="caret"></strong></a>
-  					<ul class="dropdown-menu">
-  						<li>
-  							<a href="#">Action</a>
-  						</li>
-  						<li>
-  							<a href="#">Another action</a>
-  						</li>
-  						<li>
-  							<a href="#">Something else here</a>
-  						</li>
-  						<li class="divider">
-  						</li>
-  						<li>
-  							<a href="#">Separated link</a>
-  						</li>
+  				<p>
+  					<a class="btn btn-primary btn-large" href="#">Learn more</a>
+  				</p>
+			  </div>
+  		  <!-- End Jumbotron -->
+  		  <% end %>
+  		  <!-- -->
+  		  <nav class="navbar navbar-default" role="navigation">
+    		
+    		  <div class="navbar-header">
+  					 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="/">Humane Resources</a>
+  				</div>
+  				
+  				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+  					<ul class="nav navbar-nav">
+  					
+							  <% if user_signed_in? %>
+          				<li>
+          					<a href="/employees/profile">My Profile</a>
+          				</li>
+          				<% if current_user.admin? %>
+          				  <li>
+            					<a href="/news">News</a>
+            				</li>
+            				<li>
+            					<a href="/employees">Employees</a>
+            				</li>
+            				<li>
+          					  <a href="/statistics">Statistics</a>
+          				  </li>
+            			<% end %>
+      				  <% end %>
+  					
   					</ul>
-  				</li>
-  				<li class="pull-right">
-  				  <% if user_signed_in? %>
-  				    <%= link_to "Sign out #{current_user.email}", destroy_user_session_path, :method => :delete %>
-  				  <% else %>
-  				    <%= link_to 'Sign in', "#modal-container-signin", id: "modal-signin", "data-toggle" => "modal" %>
-  				  <% end %>
-  				</li>
-  			</ul>
+  					
+  					<ul class="nav navbar-nav navbar-right">
+  						<li class="pull-right">
+  				    <% if user_signed_in? %>
+  				      <%= link_to "Sign out #{current_user.email}", destroy_user_session_path, :method => :delete %>
+  				    <% else %>
+  				      <%= link_to 'Sign in', "#modal-container-signin", id: "modal-signin", "data-toggle" => "modal" %>
+  				    <% end %>
+  				    </li>
+  					</ul>
+  					
+  					<form class="navbar-form navbar-right" role="search">
+  						<div class="form-group">
+  							<input class="form-control" type="text" value='Employee Search'/>
+  					</form>
+  				</div>
+  				
+			</nav>
+  		  
+  			
   			<div class="row clearfix">
   				<div class="col-md-12 column">
   				  <%= alert_box notice, context: :success if notice%>
