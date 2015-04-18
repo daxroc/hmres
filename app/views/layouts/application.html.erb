@@ -50,6 +50,8 @@
   			</ul>
   			<div class="row clearfix">
   				<div class="col-md-12 column">
+  				  <%= alert_box notice, context: :success if notice%>
+            <%= alert_box alert, context: :warning  if alert%>
   					<%= yield %>
   				</div>
   			</div>
