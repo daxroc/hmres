@@ -5,7 +5,7 @@ development:
   pool: 5
   username: <%= ENV['PG_USER'] %>
   password: <%= ENV['PG_PASSWORD']  %>
-  host: <%= ENV['DB_HOST'] || 'localhost' %>
+  host: <%= ENV['PG_HOST'] || 'localhost' %>
   port: 5432
   
   

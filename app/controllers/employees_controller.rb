@@ -1,7 +1,9 @@
 class EmployeesController < ApplicationController
-  before_action :set_employee, only: [:show, :edit, :update, :destroy]
+  
+  before_action :set_employee, only: [:show, :edit, :update, :destroy, :profile]
   before_action :authenticate_user!
-
+  before_filter :ensure_admin!, except: [:profile]
+  
   # GET /employees
   # GET /employees.json
   def index
@@ -52,6 +54,10 @@ class EmployeesController < ApplicationController
       end
     end
   end
+  
+  def profile
+    
+  end
 
   # DELETE /employees/1
   # DELETE /employees/1.json
@@ -64,14 +70,16 @@ class EmployeesController < ApplicationController
   end
 
   private
+  
     # Use callbacks to share common setup or constraints between actions.
     def set_employee
-      @employee = Employee.find(params[:id])
+      # D: Use the provided param if set else default to current user id
+      @employee = Employee.find(params[:id] || current_user.employee_id)
     end
 
     # Never trust parameters from the scary internet, 
     # only allow the white list through
-    # D: So lame... rails explodes chickens when not whitelisted
+    # D: So lame... rails explodes chickens when not white listed
     def employee_params
       params[:employee]
         .permit(
