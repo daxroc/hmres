@@ -6,6 +6,7 @@ class EmployeesControllerTest < ActionController::TestCase
   include Devise::TestHelpers
   
   setup do
+    sign_in users(:jane)
     @employee = employees(:one)
   end
 
