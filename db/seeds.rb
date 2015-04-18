@@ -20,3 +20,6 @@ sex = ['M','F']
     salary: 12000 * rand(1..10)
   )
 end
+
+user = User.create! :email => 'dcroche@gmail.com', :password => 'topsecret', :password_confirmation => 'topsecret'
+
