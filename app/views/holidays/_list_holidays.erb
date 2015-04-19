@@ -1,0 +1,31 @@
+<table data-toggle="table" class="table table-fixed">
+  <thead>
+    <tr>
+      <th>Approved</th>
+      <th>Leave Date</th>
+      <th>Created</th>
+      <th>Updated</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @holidays.each do |holiday| %>
+      <tr>
+        <td><% if holiday.approved? %>Approved<% else %>Pending<% end %></td>
+        <td><%= holiday.leave_date %></td>
+        <td><%= holiday.created_at %></td>
+        <td><%= holiday.updated_at %></td>
+        <td>
+          <% if current_user.admin? %>
+            <%= link_to(icon(:ok), holiday_approved_path(holiday)) unless holiday.approved? %>
+            <%= link_to(icon(:remove), holiday_approved_path(holiday)) if holiday.approved? %>
+          <% end %>
+        </td>
+        <td><%= link_to icon(:search), holiday %></td>
+        <td><%= link_to icon(:edit), edit_holiday_path(holiday) %></td>
+        <td><%= link_to icon(:trash), holiday, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
