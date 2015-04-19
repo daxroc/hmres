@@ -23,6 +23,16 @@ class HolidaysController < ApplicationController
   def edit
   end
   
+  # GET /holidays/schedule
+  def schedule
+    @holidays = Holiday.where(:approved => true)
+  end
+  
+  # GET /holidays/schedule
+  def queue
+    @holidays = Holiday.where(:approved => false)
+  end
+  
   # PATCH/PUT /holidays/approved/1
   # PATCH/PUT /holidays/approved/1.json
   def approved
