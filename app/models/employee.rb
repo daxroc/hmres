@@ -11,4 +11,8 @@ class Employee < ActiveRecord::Base
   has_one :user
   has_many :holidays
   
+  def self.search_name(query)
+    where("concat(fname, ', ', sname) LIKE ?", "%#{query}%" )
+  end
+  
 end

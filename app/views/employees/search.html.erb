@@ -1,0 +1,34 @@
+<%= render 'employee_tab_control' %>
+<h1>Search Results</h1>
+<%= will_paginate @employees, renderer: BootstrapPagination::Rails %>
+<%= @params %>
+<table data-toggle="table" class="table table-fixed">
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Sur Name</th>
+      <th>Sex</th>
+      <th>Date of birth</th>
+      <th>Join date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @employees.each do |employee| %>
+      <tr>
+        <td><%= employee.fname %></td>
+        <td><%= employee.sname %></td>
+        <td><%= employee.sex %></td>
+        <td><%= employee.dob %></td>
+        <td><%= employee.join_date %></td>
+        <td><%= link_to icon(:search), employee %></td>
+        <td><%= link_to icon(:edit), edit_employee_path(employee) %></td>
+        <td><%= link_to icon(:trash), employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "#{icon(:plus)} New Employee", new_employee_path %>
+

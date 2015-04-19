@@ -7,7 +7,7 @@ class EmployeesController < ApplicationController
   # GET /employees
   # GET /employees.json
   def index
-    @employees = Employee.all
+    #@employees = Employee.all
     @employees = Employee.paginate(:page => params[:page], :per_page => 10)
   end
 
@@ -23,6 +23,13 @@ class EmployeesController < ApplicationController
 
   # GET /employees/1/edit
   def edit
+  end
+  
+  # POST /employee/search
+  def search
+    # D: Custom search method on model searches concatinated 
+    # D: sname, fname for keyword like match
+    @employees = Employee.paginate(:page => params[:page], :per_page => 10).search_name(params[:keywords])
   end
 
   # POST /employees
@@ -90,7 +97,8 @@ class EmployeesController < ApplicationController
           :salary, 
           :join_date,
           :end_date, 
-          :sex
+          :sex,
+          :keywords
         )
     end
 end
