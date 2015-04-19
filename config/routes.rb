@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'holidays/queue', to: 'holidays#queue', as: :holiday_queue
   resources :employees
   resources :holidays
+  resources :news
   
   root to: "default#index"
   
