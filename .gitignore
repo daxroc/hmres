@@ -36,5 +36,8 @@ bower.json
 # Ignore pow environment settings
 .powenv
 
+# Ignore spring
+spring/*
+
 # Ignore the .env
 .env
