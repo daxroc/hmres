@@ -77,6 +77,7 @@ class HolidaysController < ApplicationController
       params[:holiday]
         .permit(
           :leave_date,
+          :user_id,
           :approved
         )
     end
