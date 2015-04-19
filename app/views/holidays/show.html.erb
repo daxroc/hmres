@@ -1,4 +1,26 @@
-<p id="notice"><%= notice %></p>
-
+<%= render 'employees/tab_control' %>
+<table data-toggle="table" class="table table-fixed">
+  
+  <tr>
+    <td>User</td>
+    <td><%= "#{@holiday.user.employee.sname}, #{@holiday.user.employee.fname}" %></td>
+  </tr>
+  
+  <tr>
+    <td>Leave Date</td>
+    <td><%= @holiday.leave_date %></td>
+  </tr>
+  
+  <tr>
+    <td>Created</td>
+    <td><%= @holiday.created_at %></td>
+  </tr>
+  
+  <tr>
+    <td>Updated</td>
+    <td><%= @holiday.created_at %></td>
+  </tr>
+  
+</table>
 <%= link_to 'Edit', edit_holiday_path(@holiday) %> |
 <%= link_to 'Back', holidays_path %>

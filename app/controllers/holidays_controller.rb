@@ -22,6 +22,22 @@ class HolidaysController < ApplicationController
   # GET /holidays/1/edit
   def edit
   end
+  
+  # PATCH/PUT /holidays/approved/1
+  # PATCH/PUT /holidays/approved/1.json
+  def approved
+    respond_to do |format|
+      holiday_update = Holiday.find( params[:id] )
+      holiday_update.approved = !holiday_update.approved
+      if holiday_update.save
+        format.html { redirect_to holidays_path, notice: 'Holiday was successfully approved.' }
+        format.json { render :show, status: :ok, location: @holiday }
+      else
+        format.html { redirect_to @holiday, notice: 'Failed to approve holiday' }
+        format.json { render json: @holiday.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
   # POST /holidays
   # POST /holidays.json
@@ -67,6 +83,7 @@ class HolidaysController < ApplicationController
   end
 
   private
+  
     # Use callbacks to share common setup or constraints between actions.
     def set_holiday
       @holiday = Holiday.find(params[:id])
@@ -76,6 +93,7 @@ class HolidaysController < ApplicationController
     def holiday_params
       params[:holiday]
         .permit(
+          :id,
           :leave_date,
           :user_id,
           :approved

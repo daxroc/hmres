@@ -3,10 +3,10 @@
 <table class="table table-fixed">
   <tbody>
      <tr>
-      <th colspan='2'>User ID</th>
+      <th colspan='2'>Email</th>
     </tr>
     <tr>
-      <td colspan='2'><%= @employee.user_id || "Not available" %></td>
+      <td colspan='2'><%= @employee.user.email || "Not available" %></td>
     </tr>
     <tr>
       <th>First Name</th>
