@@ -6,7 +6,7 @@ class HolidaysController < ApplicationController
   # GET /holidays
   # GET /holidays.json
   def index
-    @holidays = Holiday.where( :user_id => current_user.id )
+    @holidays = Holiday.where( :employee_id => current_user.employee_id )
   end
 
   # GET /holidays/1
@@ -45,7 +45,7 @@ class HolidaysController < ApplicationController
     @holiday = Holiday.new(holiday_params)
     
     # D: Force new holidays to belong_to current user
-    @holiday.user_id = current_user.id
+    @holiday.employee_id = current_user.employee_id
 
     respond_to do |format|
       if @holiday.save

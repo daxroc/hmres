@@ -9,5 +9,6 @@ class EmployeeTest < ActiveSupport::TestCase
   should validate_numericality_of(:salary).only_integer
   
   should have_one(:user)
+  should have_many(:holidays)
   
 end

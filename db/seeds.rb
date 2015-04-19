@@ -6,13 +6,13 @@
 
 # D: Create a set of example users and associated employee records
 fnames = ['john','jane','jim','jenifer','paul','paula']
-snames = ['murphy','slater','hayden','carrol','sinclare']
+snames = ['murphy','slater','hayden','carrol','sinclare', 'simmons']
 sex = ['M','F']
 
-5.times do |i|
-  
-  fname = fnames[rand(0..fnames.size)]
-  sname = snames[rand(0..snames.size)]
+(0..5).each do |i|
+  puts i
+  fname = fnames[rand(0..(fnames.size-1))]
+  sname = snames[rand(0..(snames.size-1))]
   dob = "#{rand(1945..1985)}-#{rand(1..12)}-#{rand(1..27)}"
   password = "password"
   email = "#{fname}.#{sname}_#{dob.gsub('-','')}@example.com"

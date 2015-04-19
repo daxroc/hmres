@@ -6,7 +6,7 @@ class EmployeesControllerTest < ActionController::TestCase
   include Devise::TestHelpers
   
   setup do
-    sign_in users(:jane)
+    sign_in users(:one)
     @employee = employees(:one)
   end
 
@@ -23,7 +23,7 @@ class EmployeesControllerTest < ActionController::TestCase
 
   test "should create employee" do
     assert_difference('Employee.count') do
-      post :create, employee: { fname: "john", sname: "murphy", sex: "M", dob: "1980-09-21", join_date: "2015-01-01", salary: 32000  }
+      post :create, employee: { id: 1, user_id: 1, fname: "john", sname: "murphy", sex: "M", dob: "1980-09-21", join_date: "2015-01-01", salary: 32000  }
     end
 
     assert_redirected_to employee_path(assigns(:employee))

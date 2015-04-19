@@ -1,17 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  fname: john
+  fname: jane
   sname: doe
-  sex: M
+  sex: F
   dob: 1980-04-11
   join_date: 2015-04-11
   salary: 28000
 
 two:
-  fname: jane
+  fname: john
   sname: doe
-  sex: F
+  sex: M
   dob: 1978-04-11
   join_date: 2015-04-11
   salary: 30000

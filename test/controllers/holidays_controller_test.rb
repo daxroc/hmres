@@ -6,7 +6,7 @@ class HolidaysControllerTest < ActionController::TestCase
   include Devise::TestHelpers
   
   setup do
-    sign_in users(:jane)
+    sign_in users(:one)
     @holiday = holidays(:one)
   end
 
