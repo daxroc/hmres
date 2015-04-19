@@ -4,8 +4,11 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+one:
+  title: "Test Article One"
+  body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce non commodo nibh, ut venenatis massa. Donec sollicitudin dui vel velit efficitur, sit amet accumsan lorem hendrerit. Nullam feugiat scelerisque diam sit amet posuere. Aenean mollis, nibh et porta sollicitudin, nibh tellus placerat ligula, sollicitudin eleifend odio nulla non nibh. Vivamus arcu nulla, consectetur nec pellentesque ut, cursus sed justo. Donec egestas eros sed ante tristique vulputate. Integer ipsum quam, tincidunt at eleifend et, volutpat eu diam. Suspendisse vel quam in mi tincidunt auctor. Sed viverra interdum metus, ut bibendum est imperdiet ac. Nullam fringilla vitae nisi et condimentum. Sed non lectus elit. Donec vitae massa eu quam finibus lobortis. Vivamus et auctor odio. In maximus massa nulla, id finibus ligula ullamcorper nec. Maecenas efficitur magna et nisl vehicula, ac vestibulum neque tincidunt. "
+  published: false
+two:
+  title: "Test Article Two"
+  body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce non commodo nibh, ut venenatis massa. Donec sollicitudin dui vel velit efficitur, sit amet accumsan lorem hendrerit. Nullam feugiat scelerisque diam sit amet posuere. Aenean mollis, nibh et porta sollicitudin, nibh tellus placerat ligula, sollicitudin eleifend odio nulla non nibh. Vivamus arcu nulla, consectetur nec pellentesque ut, cursus sed justo. Donec egestas eros sed ante tristique vulputate. Integer ipsum quam, tincidunt at eleifend et, volutpat eu diam. Suspendisse vel quam in mi tincidunt auctor. Sed viverra interdum metus, ut bibendum est imperdiet ac. Nullam fringilla vitae nisi et condimentum. Sed non lectus elit. Donec vitae massa eu quam finibus lobortis. Vivamus et auctor odio. In maximus massa nulla, id finibus ligula ullamcorper nec. Maecenas efficitur magna et nisl vehicula, ac vestibulum neque tincidunt. "
+  published: true
