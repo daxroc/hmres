@@ -1,11 +1,22 @@
 class NewsController < ApplicationController
   before_action :set_news, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_filter :ensure_admin!, except: [:show, :list]
 
   # GET /news
   # GET /news.json
   def index
-    @news = News.all
+    @news = News.paginate(:page => params[:page], :per_page => 10)
   end
+  
+  # GET /news/list.json
+  def list
+    @news = News.last( 3 ).reverse
+    respond_to do |format|
+      format.json { render json: @news }
+    end
+  end
+  
 
   # GET /news/1
   # GET /news/1.json

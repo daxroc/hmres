@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'holidays/approved/:id', to: 'holidays#approved', as: :holiday_approved
   get 'holidays/schedule', to: 'holidays#schedule', as: :holiday_schedule
   get 'holidays/queue', to: 'holidays#queue', as: :holiday_queue
+  get 'news/list', to: 'news#list', as: :news_list
   resources :employees
   resources :holidays
   resources :news

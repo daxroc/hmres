@@ -17,6 +17,8 @@
 //= require moment
 //= require fullcalendar
 
+//= require angular
+//= require angularApp
 
 //= require eventCalendar
 

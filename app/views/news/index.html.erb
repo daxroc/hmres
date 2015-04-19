@@ -1,25 +1,31 @@
-<p id="notice"><%= notice %></p>
+<%= render 'news_tab_control' %>
 
-<h1>Listing News</h1>
+<h1>News Articles</h1>
 
-<table>
+
+<%= will_paginate @news, renderer: BootstrapPagination::Rails %>
+<table data-toggle="table" class="table table-fixed">
   <thead>
     <tr>
+      <th>Title</th>
+      <th>Word count</th>
+      <th>Created</th>
+      <th>Updated</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @news.each do |news| %>
+    <% @news.each do |article| %>
       <tr>
-        <td><%= link_to 'Show', news %></td>
-        <td><%= link_to 'Edit', edit_news_path(news) %></td>
-        <td><%= link_to 'Destroy', news, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= article.title %></td>
+        <td><%= article.body.scan(/\w+/).size %></td>
+        <td><%= article.created_at %></td>
+        <td><%= article.updated_at %></td>
+        <td><%= link_to icon(:search), article %></td>
+        <td><%= link_to icon(:edit), edit_news_path(article) %></td>
+        <td><%= link_to icon(:trash), article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New News', new_news_path %>

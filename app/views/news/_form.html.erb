@@ -1,4 +1,4 @@
-<%= form_for(@news) do |f| %>
+<%= form_for @news,  layout: :basic  do |f| %>
   <% if @news.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@news.errors.count, "error") %> prohibited this news from being saved:</h2>
@@ -10,7 +10,8 @@
       </ul>
     </div>
   <% end %>
-
+        <%= f.text_field :title, autocomplete: "off" %>
+        <%= f.text_area :body, autocomplete: "off" %>
   <div class="actions">
     <%= f.submit %>
   </div>

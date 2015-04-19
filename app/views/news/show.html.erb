@@ -1,4 +1,12 @@
-<p id="notice"><%= notice %></p>
+<%= render 'news_tab_control' %>
 
-<%= link_to 'Edit', edit_news_path(@news) %> |
-<%= link_to 'Back', news_index_path %>
+<h1><%= @news.title %></h1>
+<div id='container'>
+  <%= @news.body %>
+</div>
+<% if user_signed_in? %>
+  <% if current_user.admin? %>
+    <%= link_to 'Edit', edit_news_path(@news) %> |
+    <%= link_to 'Back', news_index_path %>
+  <% end %>
+<% end %>
