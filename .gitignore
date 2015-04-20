@@ -39,5 +39,8 @@ bower.json
 # Ignore spring
 spring/*
 
+# Ignore public assets
+public/assets/*
+
 # Ignore the .env
 .env
