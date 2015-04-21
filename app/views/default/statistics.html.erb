@@ -1,0 +1,15 @@
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+
+<div class='row'>
+  
+  <div class='col-xs-12'>
+    <h2>Hire trend</h2>
+    <%= bar_chart chart_join_by_year_path, discrete: true, library: { format: '0' } %>
+  </div>
+</div>
+<div class='row'>  
+  <div class='col-xs-12'>
+    <h2>Workforce Age</h2>
+    <%= area_chart chart_by_age_path, discrete: true, library: { format: '0' } %>
+  </div>
+</div>

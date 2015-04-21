@@ -19,6 +19,7 @@ gem 'jquery-rails'
 gem 'angularjs-rails'
 gem 'momentjs-rails'
 
+gem 'chartkick'
 
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
